@@ -1,25 +1,48 @@
-name: CI/CD Simulado - Infraestrutura Ágil
+name: Pipeline DevOps Completo
 
 on: [push]
 
 jobs:
-  build-and-test:
+  qualidade:
     runs-on: ubuntu-latest
+    name: 🧪 Controle de Qualidade
     
     steps:
-    - name: Passo 1 - Baixar código
-      run: echo "🎯 Baixando o código do repositório..."
+    - name: 📥 Baixando código
+      run: echo "Código baixado do GitHub!"
     
-    - name: Passo 2 - Executar testes
-      run: echo "🧪 Executando testes automatizados..."
+    - name: 🔍 Verificando segurança
+      run: echo "Procurando vírus e vulnerabilidades..."
     
-    - name: Passo 3 - Validar HTML
-      run: echo "✓ HTML validado com sucesso!"
-    
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-test
+    - name: 📊 Analisando qualidade
+      run: echo "Verificando se o código segue padrões..."
+  
+  testes:
+    runs-on: ubuntu-latest  
+    name: ⚙️ Banco de Testes
+    needs: qualidade
     
     steps:
-    - name: Passo 4 - Implantar em produção
-      run: echo "🚀 IMPLANTANDO EM PRODUÇÃO - Site no ar!"
+    - name: 🧩 Testes unitários
+      run: echo "Testando cada peça do código..."
+    
+    - name: 🔗 Testes de integração
+      run: echo "Testando se as peças funcionam juntas..."
+    
+    - name: 📈 Testes de performance
+      run: echo "Testando velocidade do sistema..."
+
+  implantacao:
+    runs-on: ubuntu-latest
+    name: 🚀 Implantação
+    needs: testes
+    
+    steps:
+    - name: 🌐 Implantar em Homologação
+      run: echo "Implantando no ambiente de teste..."
+    
+    - name: 📲 Implantar em Produção
+      run: echo "IMPLANTANDO NO AR! 🎉"
+    
+    - name: 📢 Notificar time
+      run: echo "Enviando email: Código implantado com sucesso!"
