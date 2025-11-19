@@ -1,0 +1,25 @@
+name: CI/CD Simulado - Infraestrutura Ágil
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Passo 1 - Baixar código
+      run: echo "🎯 Baixando o código do repositório..."
+    
+    - name: Passo 2 - Executar testes
+      run: echo "🧪 Executando testes automatizados..."
+    
+    - name: Passo 3 - Validar HTML
+      run: echo "✓ HTML validado com sucesso!"
+    
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    
+    steps:
+    - name: Passo 4 - Implantar em produção
+      run: echo "🚀 IMPLANTANDO EM PRODUÇÃO - Site no ar!"
