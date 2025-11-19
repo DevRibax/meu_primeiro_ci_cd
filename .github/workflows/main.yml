@@ -5,44 +5,44 @@ on: [push]
 jobs:
   qualidade:
     runs-on: ubuntu-latest
-    name: 🧪 Controle de Qualidade
+    name: Controle de Qualidade
     
     steps:
-    - name: 📥 Baixando código
+    - name: Baixando código
       run: echo "Código baixado do GitHub!"
     
-    - name: 🔍 Verificando segurança
+    - name: Verificando segurança
       run: echo "Procurando vírus e vulnerabilidades..."
     
-    - name: 📊 Analisando qualidade
+    - name: Analisando qualidade
       run: echo "Verificando se o código segue padrões..."
   
   testes:
     runs-on: ubuntu-latest  
-    name: ⚙️ Banco de Testes
+    name: Banco de Testes
     needs: qualidade
     
     steps:
-    - name: 🧩 Testes unitários
+    - name: Testes unitários
       run: echo "Testando cada peça do código..."
     
-    - name: 🔗 Testes de integração
+    - name: Testes de integração
       run: echo "Testando se as peças funcionam juntas..."
     
-    - name: 📈 Testes de performance
+    - name: Testes de performance
       run: echo "Testando velocidade do sistema..."
 
   implantacao:
     runs-on: ubuntu-latest
-    name: 🚀 Implantação
+    name: Implantação
     needs: testes
     
     steps:
-    - name: 🌐 Implantar em Homologação
+    - name: Implantar em Homologação
       run: echo "Implantando no ambiente de teste..."
     
-    - name: 📲 Implantar em Produção
+    - name: Implantar em Produção
       run: echo "IMPLANTANDO NO AR! 🎉"
     
-    - name: 📢 Notificar time
+    - name: Notificar time
       run: echo "Enviando email: Código implantado com sucesso!"
